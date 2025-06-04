@@ -5,3 +5,8 @@ members = [
     "searcher_client",
 ]
 resolver = "2"
+
+[patch.crates-io]
+solana-perf = { git = "ssh://git@github.com/dovahcrow/solana-mole.git", rev = "2191a9716cbf5f9d85651aff115f67fa121e389c" }
+solana-client = { git = "ssh://git@github.com/dovahcrow/solana-mole.git", rev = "2191a9716cbf5f9d85651aff115f67fa121e389c" }
+solana-transaction-status = { git = "ssh://git@github.com/dovahcrow/solana-mole.git", rev = "2191a9716cbf5f9d85651aff115f67fa121e389c" }

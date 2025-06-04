@@ -33,7 +33,7 @@ pub fn packet_to_proto_packet(p: &Packet) -> Option<ProtoPacket> {
                 forwarded: p.meta().forwarded(),
                 repair: p.meta().repair(),
                 simple_vote_tx: p.meta().is_simple_vote_tx(),
-                tracer_packet: p.meta().is_tracer_packet(),
+                tracer_packet: p.meta().is_perf_track_packet(),
                 from_staked_node: p.meta().is_from_staked_node(),
             }),
             sender_stake: 0,
@@ -70,7 +70,10 @@ pub fn proto_packet_to_packet(p: &ProtoPacket) -> Packet {
                 packet.meta_mut().flags.insert(PacketFlags::FORWARDED);
             }
             if flags.tracer_packet {
-                packet.meta_mut().flags.insert(PacketFlags::TRACER_PACKET);
+                packet
+                    .meta_mut()
+                    .flags
+                    .insert(PacketFlags::PERF_TRACK_PACKET);
             }
             if flags.repair {
                 packet.meta_mut().flags.insert(PacketFlags::REPAIR);
